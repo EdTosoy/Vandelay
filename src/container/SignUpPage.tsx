@@ -4,7 +4,7 @@ import SignUpForm from "../components/SignUpForm";
 
 function SignUpPage() {
   return (
-    <div className="grid-container bg-signUpBG bg-no-repeat bg-top ">
+    <div className="grid-container signUpBG bg-no-repeat bg-top ">
       <Header />
       <div className="col-start-2 col-end-3 text-center justify-between items-center mb-4">
         <div className="my-14 text-white">

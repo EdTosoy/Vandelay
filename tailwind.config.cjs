@@ -27,12 +27,6 @@ module.exports = {
         9: "9",
         10: "10",
       },
-      backgroundImage: {
-        signUpBG: "url('./src/assets/signupbackground.jpg')",
-        signInBG: "url('./src/assets/signInBG.png')",
-        adBG: "url('./src/assets/adBG.png')",
-        chart2BG: "url('./src/assets/chart2.png')",
-      },
       fontSize: {
         xxs: "10px",
         xs: "12px",

@@ -27,7 +27,7 @@ function SidePanel() {
       <SidePanelItem name="Profile" iconName="person-sharp" />
       <SidePanelItem name="Sign In" iconName="document-sharp" path="/sign-in" />
       <SidePanelItem name="Sign Up" iconName="rocket-sharp" path="/" />
-      <div className="w-full p-4 mt-12  bg-adBG bg-cover rounded-2xl">
+      <div className="w-full p-4 mt-12 adBG bg-cover rounded-2xl">
         <div
           className="bg-white  text-cyan
          p-1  w-min h-min rounded-xl grid place-content-center"

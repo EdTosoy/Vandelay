@@ -1,6 +1,6 @@
 function DashboardWidget2() {
   return (
-    <div className="col-start-8 bg-chart2BG col-span-full bg-cover p-10">
+    <div className="col-start-8 chart2BG col-span-full bg-cover p-10">
       <div className="flex flex-col justify-between h-full gap-5">
         <div>
           <h3 className="text-lg my-1 font-bold text-white">
