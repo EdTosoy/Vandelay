@@ -1,10 +1,6 @@
 import ProjectItem from "./ProjectItem";
 import ChartTitle from "./ChartTitle";
-import xdLogo from "../assets/xd.svg";
-import companyLogo1 from "../assets/companyLogo1.png";
-import companyLogo2 from "../assets/companyLogo2.png";
-import companyLogo3 from "../assets/companyLogo3.png";
-import companyLogo4 from "../assets/companyLogo4.png";
+import { tableProjects } from "../sampleData";
 
 function TableWidget2() {
   return (
@@ -25,46 +21,25 @@ function TableWidget2() {
           </tr>
         </thead>
         <tbody>
-          <ProjectItem
-            logoSrc={xdLogo}
-            company={"Chakra Soft UI Version"}
-            budget={"$14,000"}
-            completionPercentage={"60%"}
-            progressbarValue={"w-3/5"}
-            status={"Working"}
-          />
-          <ProjectItem
-            logoSrc={companyLogo1}
-            company={"Add Progress Track"}
-            budget={"$3,000"}
-            completionPercentage={"10%"}
-            progressbarValue={"w-2/12"}
-            status={"Canceled"}
-          />
-          <ProjectItem
-            logoSrc={companyLogo2}
-            company={"Fix Platform Errors"}
-            budget={"Not set"}
-            completionPercentage={"100%"}
-            progressbarValue={"w-1/1"}
-            status={"Done"}
-          />
-          <ProjectItem
-            logoSrc={companyLogo3}
-            company={"Launch our Mobile App"}
-            budget={"$32,000"}
-            completionPercentage={"100%"}
-            progressbarValue={"w-1/1"}
-            status={"Done"}
-          />
-          <ProjectItem
-            logoSrc={companyLogo4}
-            company={"Add the New Pricing Page"}
-            budget={"$400"}
-            completionPercentage={"25%"}
-            progressbarValue={"w-1/4"}
-            status={"Working"}
-          />
+          {tableProjects.map(
+            ({
+              budget,
+              company,
+              completionPercentage,
+              logoImg,
+              progressbarValue,
+              status,
+            }) => (
+              <ProjectItem
+                logoSrc={logoImg}
+                company={company}
+                budget={budget}
+                completionPercentage={completionPercentage}
+                progressbarValue={progressbarValue}
+                status={status}
+              />
+            )
+          )}
         </tbody>
       </table>
     </div>

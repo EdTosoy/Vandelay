@@ -1,8 +1,8 @@
-import Chart3 from "../assets/chart3.png";
-
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import CardStat from "./CardStat";
 import ChartTitle from "./ChartTitle";
+import Chart3 from "../assets/chart3.png";
+import { stats } from "../sampleData";
 
 function DashboardWidget3() {
   return (
@@ -17,10 +17,9 @@ function DashboardWidget3() {
         spanText="(+23)"
       />
       <div className="flex w-full gap-16 ">
-        <CardStat iconName="wallet-sharp" title="Users" text="32,984" />
-        <CardStat iconName="rocket-sharp" title="Clicks" text="2,42m" />
-        <CardStat iconName="cart-sharp" title="Sales" text="2400$" />
-        <CardStat iconName="build-sharp" title="Items" text="320" />
+        {stats.map(({ iconName, title, text }) => (
+          <CardStat iconName={iconName} title={title} text={text} />
+        ))}
       </div>
     </div>
   );

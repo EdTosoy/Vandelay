@@ -35,7 +35,7 @@ function AuthorItem({
 
       <td className="border-t border-gray150 text-sm">
         <div className="flex justify-center ">
-          <div className="w-1/3 pl-11">
+          <div className="w-1/3 pl-9">
             <h2 className="text-sm font-bold text-gray900">{position}</h2>
             <p className="text-sm text-gray250">{role}</p>
           </div>
