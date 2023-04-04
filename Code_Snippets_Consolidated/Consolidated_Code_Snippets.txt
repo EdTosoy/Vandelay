@@ -1,0 +1,144 @@
+import { useState, useCallback, useEffect } from "react";
+
+export const useMediaQuery = (width: number) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e: any) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
+EXPLANATION : 
+This is a custom React hook called useMediaQuery, which returns a boolean value indicating whether the viewport width has reached a specified maximum width.
+
+The hook takes a single argument, width, which represents the maximum viewport width to check against.
+
+Inside the hook, it uses the useState hook to manage the state of targetReached, which is initialized to false.
+
+The useCallback hook is used to memoize the updateTarget function, which is used as a callback for when the media query matches or doesn't match the specified width.
+
+The useEffect hook is used to listen to changes in the viewport width, and it takes care of setting up and tearing down the media listener by using the addListener and removeListener methods on the window.matchMedia object.
+
+Finally, the hook returns the targetReached state, which will be true if the viewport width is less than or equal to the specified width, and false otherwise.
+
+This hook can be useful for creating responsive components in a React application that need to adapt to different screen sizes.
+
+
+
+
+
+
+
+
+
+
+
+const [scroll, setScroll] = useState(0);
+
+useEffect(() => {
+document.addEventListener("scroll", () => {
+    setScroll(window.scrollY);
+});
+}, []);
+
+
+EXPLANATION: 
+This is a React code snippet that uses the useState and useEffect hooks to track the user's scrolling behavior on the page.
+
+First, it declares a state variable called scroll and initializes it to 0 using the useState hook.
+
+Next, it adds an event listener to the scroll event on the document object using the useEffect hook. The event listener is a callback function that updates the scroll state variable with the current window.scrollY value (i.e., the vertical scroll position).
+
+The useEffect hook is also provided with an empty dependency array ([]) as the second argument, which means that the effect will only be executed once when the component is mounted. This ensures that the event listener is only added once and not repeatedly.
+
+Overall, this code is useful for tracking the user's scroll position on the page, which can be used for implementing different UI behaviors, such as sticky headers or infinite scroll pagination. However, it's worth noting that excessive use of scroll tracking can negatively impact the user's experience, and it's important to use it judiciously.
+
+
+
+
+
+
+const SignUpPage = lazy(() => import("./container/SignUpPage"));
+const SignInPage = lazy(() => import("./container/SignInPage"));
+const Dashboard = lazy(() => import("./container/Dashboard"));
+const Tables = lazy(() => import("./container/Tables"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<>loading...</>}>
+        <SignUpPage />,
+      </Suspense>
+    ),
+  },
+  {
+    path: "/sign-in",
+    element: (
+      <Suspense fallback={<>loading...</>}>
+        <SignInPage />,
+      </Suspense>
+    ),
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <Suspense fallback={<>loading...</>}>
+        <Dashboard />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/tables",
+    element: (
+      <Suspense fallback={<>loading...</>}>
+        <Tables />
+      </Suspense>
+    ),
+  },
+]);
+
+EXPLANATION :
+This is a code snippet that uses the lazy function from React to lazily load the components used in the routing configuration.
+
+The lazy function allows you to load a component lazily, which means that it is loaded only when it is needed. This can improve the performance of your application by reducing the initial bundle size and improving the load time.
+
+In this example, there are four components that are lazily loaded using the lazy function:
+
+    SignUpPage
+    SignInPage
+    Dashboard
+    Tables
+
+Each component is imported from a separate file located in the "./container" directory using the import function.
+
+After defining the lazy-loaded components, the code sets up the routing configuration using the createBrowserRouter function as explained in my previous answer.
+
+Overall, this code optimizes the performance of the application by lazily loading the components, making the initial load faster and more efficient.
+
+
+
+
+
+
+
+PS: 
+Here are some of the code snippets that I have used in this project. The other code is quite self-explanatory and involves minimal logic, such as JSX, styling, and some conditional rendering. Since this project is a static website, it doesn't require a lot of complex logic.
